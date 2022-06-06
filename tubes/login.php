@@ -6,10 +6,10 @@ session_start();
 error_reporting(0);
 
 if (isset($_SESSION['username'])) {
-    header("Location: welcome.php");
+    
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['login'])) {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
 
@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['username'] = $row['username'];
-		header("Location: welcome.php");
+		
 	} else {
 		echo "<script>alert('Woops! Email Atau Password anda Salah.')</script>";
 	}
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 	<div class="container">
-		<form action="" method="POST" class="login-email">
+		<form action="" method="post" class="login-email">
 			<p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
 			<div class="input-group">
 				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
@@ -51,7 +51,8 @@ if (isset($_POST['submit'])) {
 			<div class="input-group">
 				<button name="submit" class="btn">Login</button>
 			</div>
-			<p class="login-register-text">Tidak punya akun? <a href="registrasi.php">registrasi disini</a>.</p>
+			<p class="login-register-text">Tidak punya akun? <a href="registasi.
+			.php">registrasi disini</a>.</p>
 		</form>
 	</div>
 </body>

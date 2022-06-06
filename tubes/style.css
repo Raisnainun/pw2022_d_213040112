@@ -8,7 +8,7 @@
 body {
     width: 100%;
     min-height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url(bg.jpg);
+    background-image: url(2.jpg);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -131,12 +131,12 @@ body {
     background: #6c5ce7;
 }
 
-.login-register-text {
+.login-registrasi-text {
     color: #111;
     font-weight: 600;
 }
 
-.login-register-text a {
+.login-registrasi-text a {
     text-decoration: none;
     color: #6c5ce7;
 }

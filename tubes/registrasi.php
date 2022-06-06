@@ -54,10 +54,10 @@ if (isset($_POST['submit'])) {
 
 	<title>Halaman registrasi</title>
 </head>
-<body  style="background-image: 2.jpg ;">
+<body>
 	<div class="container">
 		<form action="" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Registrasi</p>
+            <p class="login-text" style="font-size: 2rem; font-weight: 800;">registrasi</p>
 			<div class="input-group">
 				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
 			</div>
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
 			</div>
 			<div class="input-group">
-				<button name="submit" class="btn">Registrasi</button>
+				<button name="submit" class="btn">registrasis</button>
 			</div>
 			<p class="login-register-text">sudah punya akun? <a href="login.php">Login disini</a>.</p>
 		</form>
