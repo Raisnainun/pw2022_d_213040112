@@ -1,80 +1,59 @@
-<?php
+<?php 
 require 'functions.php';
 
-error_reporting(0);
 
-session_start();
-
-if (isset($_SESSION['username'])) {
-    header("Location: login.php");
-}
-
-if (isset($_POST['submit'])) {
-	$username = $_POST['username'];
-	$email = $_POST['email'];
-	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
-
-	if ($password == $cpassword) {
-		$query = "SELECT * FROM user WHERE email='$email'";
-		$result = mysqli_query($conn, $query);
-		if (!$result->num_rows > 0) {
-			$query = "INSERT INTO user (username, email, password)
-					VALUES ('$username', '$email', '$password')";
-			$result = mysqli_query($conn, $query);
-			if ($result) {
-				echo "<script>alert('registrasi anda berhasil!.')</script>";
-				$username = "";
-				$email = "";
-				$_POST['password'] = "";
-				$_POST['cpassword'] = "";
-			} else {
-				echo "<script>alert('opps, teradi kesalahan!.')</script>";
-			}
-		} else {
-			echo "<script>alert('emaill sudah ada!.')</script>";
-		}
-
-	} else {
-		echo "<script>alert('kata sandi anda salah!.')</script>";
-	}
+if( isset($_POST["registrasi"]) ) {
+    if( registrasi($_POST) > 0 ) {
+        echo "<script>
+                alert('Berhasil menambahkan user baru!');
+            </script>";
+        } else {
+            echo mysqli_error($conn);
+        }
 }
 
 ?>
 
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<title>Halaman registrasi</title>
+    <title>Halaman Registrasi</title>
 </head>
 <body>
-	<div class="container">
-		<form action="" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">registrasi</p>
-			<div class="input-group">
-				<input type="text" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
-			</div>
-			<div class="input-group">
-				<input type="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
-			</div>
-			<div class="input-group">
-				<input type="password" placeholder="Password" name="password" value="<?php echo $_POST['password']; ?>" required>
+    <style>
+        label {
+            display: block; 
+        }
+    </style>
+    
+
+<form action="" method="post">
+    <div class="container">
+        <H1>Registrasi</H1>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required>
             </div>
             <div class="input-group">
-				<input type="password" placeholder="Confirm Password" name="cpassword" value="<?php echo $_POST['cpassword']; ?>" required>
-			</div>
-			<div class="input-group">
-				<button name="submit" class="btn">registrasis</button>
-			</div>
-			<p class="login-register-text">sudah punya akun? <a href="login.php">Login disini</a>.</p>
-		</form>
-	</div>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <div class="input-group">
+                <label for="cpassword">Confirm Password</label>
+                <input type="password" name="cpassword" id="cpassword">
+            </div>
+            <div class="input-group">
+                <button type="submit" name="registrasi" class="btn btn-primary">Registrasi</button>
+                <p class="login-register-text">Sudah punya akun? <a href="login.php" class="btn btn-primary">Login disini</a>.</p>
+            </div>
+    </div>
+</form>
 </body>
 </html>
