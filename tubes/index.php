@@ -1,10 +1,14 @@
 <?php 
 session_start();
 
-if( !isset($_SESSION["login"])) {
-    header("location: login.php");
-    exit;
+if( !isset($_SESSION["login"]) ) {
+	header("Location: login.php");
+	exit;
 }
+
+
+
+
 require 'functions.php';
 
 $produk = query("SELECT * FROM produk");
@@ -27,9 +31,12 @@ if( isset($_POST["cari"]) ) {
     <title>Halaman Admin</title>
 </head>
 <body>
+ 
 <div class="container">
     <h1>Daftar Penjualan</h1>
-
+<div class="mb-3">
+    <a href="logout.php" class="btn btn-primary" >Logout</a>
+</div>
 
     <a href="tambah.php" class="btn btn-primary"> Tambah Data Produk</a>
     

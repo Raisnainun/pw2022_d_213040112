@@ -1,26 +1,36 @@
 <?php 
 session_start();
-require 'functions.php';
 
-
-
-if(isset($_SESSION['login'])){
-	header('Location: index.php');
+if( isset($_SESSION["login"]) ) {
+	header("Location: index.php");
+	exit;
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+require 'functions.php';
 
-	$user = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
-	$user = mysqli_fetch_assoc($user);
+if( isset($_POST["login"]) ) {
 
-	if($user){
-		$_SESSION['username'] = $user['password'];
-		header('Location: index.php');
-	}else{
-		echo "username / Password salah";
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+
+	$result = mysqli_query($conn, "SELECT * FROM user WHERE username = '$username'");
+
+	// cek username
+	if( mysqli_num_rows($result) === 1 ) {
+
+		// cek password
+		$row = mysqli_fetch_assoc($result);
+		if( password_verify($password, $row["password"]) ) {
+			// set session
+			$_SESSION["login"] = true;
+
+			header("Location: index.php");
+			exit;
+		}
 	}
+
+	$error = true;
+
 }
 
 
@@ -48,11 +58,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 				<input type="text" name="username" required>
 			</div>
 			<div class="input-group">
-				<label for="username">Password</label>
+				<label for="password">Password</label>
 				<input type="password" name="password" required>
 			</div>
 			<div>
-				<button name="submit" class="btn btn-primary" style="margin-top:5px">Login</button>
+				<button type="submit" name="login" class="btn btn-primary" style="margin-top:5px">Login</button>
 			</div>
 			<p class="login-register-text">kamu tidak punya akun? <a href="registrasi.php" class="btn btn-primary">Register Disini</a>.</p>
 		</form>
