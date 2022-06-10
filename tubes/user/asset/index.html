@@ -1,0 +1,233 @@
+<?php 
+$conn = mysqli_connect("localhost", "root", "", "blasomee");
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman User</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+    
+
+<header class="header">
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">about</a>
+        <a href="#products">products</a>
+        <a href="#contact">contact</a>
+    </nav>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <div class="search-form">
+        <input type="search" id="search-box" placeholder="search here...">
+        <label for="search-box" class="fas fa-search"></label>
+    </div>
+
+    <div class="cart-items-container">
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/blosom.jpg" alt="">
+            <div class="content">
+                <h3>kategori Bunga</h3>
+            </div>
+        </div>
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/sweet.jpg" alt="">
+            <div class="content">
+                <h3>Kategori Buah</h3>
+            </div>
+        </div>
+        <div class="cart-item">
+            <span class="fas fa-times"></span>
+            <img src="images/coco.jpg" alt="">
+            <div class="content">
+                <h3>kategori coco</h3>
+            </div>
+        </div>
+        <a href="#" class="btn">checkout now</a>
+    </div>
+
+</header>
+
+<section class="home" id="home">
+    <div class="content">
+        <h3>WELCOME TO BLASOMEEEE</h3>
+    </div>
+
+</section>
+
+<section class="about" id="about">
+
+    <h1 class="heading"> <span>about</span> us </h1>
+
+    <div class="row">
+
+        <div class="image">
+            <img src="images/parfum1.png" alt="">
+        </div>
+
+        <div class="content">
+            <p>kata "parfum" berasal dari bahasa Latin per fume artinya "melalui asap". Sejarah parfum konon dimulai sejak jaman Mesopotamia dan Mesir Kuno. Dan disempurnakan oleh bangsa Romawi dan Persia. Tokoh pembuat parfum paling tua yang tercatat adalah seorang wanita bernama Tapputi. Nama wanita ini muncul pada sebuah prasasti kuno sebagai seorang peramu parfum di Mesopotamia sekitar 2000 tahun sebelum masehi. Taputti menyuling sari bunga dan ramuan lain hingga menghasilkan minyak beraroma wangi.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="products" id="products">
+
+    <h1 class="heading"> our <span>products</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images/blosom.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>BLOSOM JASMINE</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">RP.150.000</div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images/sweet.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>SWEET CHERRY</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">RP.135.000</div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-eye"></a>
+            </div>
+            <div class="image">
+                <img src="images/coco.jpg" alt="">
+            </div>
+            <div class="content">
+                <h3>COCO MARDEMOISELEE</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <div class="price">RP.120.000</div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"> <span>contact</span> us </h1>
+
+    <div class="row">
+
+        <iframe class="map" src="https://www.google.com/maps/place/Universitas+Pasundan/@-6.8664367,107.5905904,17z/data=!3m1!4b1!4m5!3m4!1s0x2e68e6be3e8a0c49:0x730028bf4627def4!8m2!3d-6.8664367!4d107.5927845?hl=en" allowfullscreen="" loading="lazy"></iframe>
+
+        <form action="">
+            <h3>get in touch</h3>
+            <div class="inputBox">
+                <span class="fas fa-user"></span>
+                <input type="text" placeholder="name">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-envelope"></span>
+                <input type="email" placeholder="email">
+            </div>
+            <div class="inputBox">
+                <span class="fas fa-phone"></span>
+                <input type="number" placeholder="number">
+            </div>
+            <input type="submit" value="contact now" class="btn">
+        </form>
+
+    </div>
+
+</section>
+
+
+</section>
+
+<section class="footer">
+
+    <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+        <a href="#" class="fab fa-pinterest"></a>
+    </div>
+
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+
+</body>
+</html>
